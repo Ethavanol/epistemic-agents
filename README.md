@@ -12,7 +12,9 @@ In order to use the epistemic agent framework with other projects, you must inst
 
  To do this, make sure gradle is installed, clone the repository, and run: 
    
-   ./gradlew publishToMavenLocal 
+     ./gradlew publishToMavenLocal 
    
 If some tests don't pass, run :  
-  ./gradlew publishToMavenLocal -x test 
+
+    ./gradlew publishToMavenLocal -x test 
+ 
