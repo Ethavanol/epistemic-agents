@@ -3,8 +3,8 @@
 
 - Tests are currently out-of-date but implementation is working (prioritizing implementation completion for deadline)
 
-- **Requirement**: The epistemic reasoner used by these agents can be found at: https://github.com/MikeVezina/epistemic-reasoner
-- **Example**: A demo of how this framework can be used is shown for agent localization at: https://github.com/MikeVezina/localization-demo
+- **Requirement**: The epistemic reasoner used by these agents can be found at: https://github.com/Ethavanol/epistemic-reasoner
+- **Example**: A demo of how this framework can be used is shown for agent localization at: https://github.com/Ethavanol/localization-demo
 
 
 ## Install Gradle Local Dependency
