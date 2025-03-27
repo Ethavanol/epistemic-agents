@@ -8,10 +8,14 @@
 
 
 ## Install Gradle Local Dependency
-First of all, make sure to rename the "reasoner-config.json.example" in "reasoner-config.json".
 
 In order to use the epistemic agent framework with other projects, you must install it into your local gradle repository (it is currently not being published to maven central). 
 
+
+### Rename the reasoner-config.json.example
+First of all, make sure to rename the "reasoner-config.json.example" in "reasoner-config.json".
+
+### Install Gradle Dependency
 To do this, make sure gradle is installed, clone the repository, and run: 
    
      ./gradlew publishToMavenLocal 
