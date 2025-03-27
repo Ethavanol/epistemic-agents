@@ -37,7 +37,7 @@ public class EpistemicAgent extends Agent {
     }
 
     @Override
-    public void load(String asSrc) throws JasonException {
+    public void load(String asSrc) throws Exception {
         super.load(asSrc);
         this.agentLoaded();
     }
@@ -48,7 +48,7 @@ public class EpistemicAgent extends Agent {
     }
 
     @Override
-    public void load(InputStream in, String sourceId) throws JasonException {
+    public void load(InputStream in, String sourceId) throws Exception {
         super.load(in, sourceId);
         this.agentLoaded();
     }

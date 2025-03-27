@@ -5,6 +5,7 @@ import jason.asSyntax.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import javax.json.JsonValue;
 import java.util.Map;
 
 public class WrappedTerm extends DefaultTerm
@@ -214,7 +215,28 @@ public class WrappedTerm extends DefaultTerm
     }
 
     @Override
-    public String getAsJSON(String indentation) {
-        return wrappedTerm.getAsJSON(indentation);
+    public JsonValue getAsJson() {
+        // Si wrappedTerm est une instance de Literal, vous pouvez décider comment la convertir en JSON.
+        if (wrappedTerm instanceof Literal) {
+            // Exemple: Si vous voulez juste convertir le terme en chaîne JSON (en fonction de la structure de `Literal`)
+            return javax.json.Json.createObjectBuilder()
+                    .add("type", "Literal")
+                    .add("value", wrappedTerm.toString()) // Ici, vous pouvez aussi utiliser une méthode spécifique pour obtenir la valeur du terme
+                    .build();
+        }
+
+        // Si wrappedTerm est une autre instance, ajustez en fonction de son type.
+        if (wrappedTerm instanceof Term) {
+            return javax.json.Json.createObjectBuilder()
+                    .add("type", "Term")
+                    .add("value", wrappedTerm.toString()) // Encore une fois, ajustez la conversion selon le besoin
+                    .build();
+        }
+
+        // Par défaut, retourner une valeur JSON indiquant qu'il n'y a pas de représentation JSON définie
+        return javax.json.Json.createObjectBuilder()
+                .add("type", "Unknown")
+                .add("value", wrappedTerm.toString())
+                .build();
     }
 }

@@ -34,7 +34,7 @@ public class StubEpistemicAgent extends EpistemicAgent {
 
         try {
             this.load("");
-        } catch (JasonException e) {
+        } catch (Exception e) {
             throw new RuntimeException("Failed to load agent: ", e);
         }
     }

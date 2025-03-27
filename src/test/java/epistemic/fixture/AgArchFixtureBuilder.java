@@ -83,7 +83,7 @@ public class AgArchFixtureBuilder {
 
             // Load the agent
             agent.load("");
-        } catch (JasonException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
