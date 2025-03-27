@@ -1,4 +1,6 @@
 # Epistemic Agents 
+This is a fork of [Michael Vezina Epistemic Agents](https://github.com/MikeVezina/epistemic-agents). This server provides a simple API for creating, updating, and reasoning about Explicit Epistemic models. 
+
 [![CircleCI](https://circleci.com/gh/MikeVezina/epistemic-agents/tree/master.svg?style=svg&circle-token=d7ce6dbdee725382aab008ae3406668de1e409d7)](https://circleci.com/gh/MikeVezina/epistemic-agents/tree/master)
 
 - Tests are currently out-of-date but implementation is working (prioritizing implementation completion for deadline)
