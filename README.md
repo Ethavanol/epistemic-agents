@@ -10,12 +10,9 @@
 ## Install Gradle Local Dependency
 In order to use the epistemic agent framework with other projects, you must install it into your local gradle repository (it is currently not being published to maven central). 
 
-To do this, make sure gradle is installed, clone the repository, and run:
----
-./gradlew publishToMavenLocal   
----
-
-If some tests don't pass, run :
----
-./gradlew publishToMavenLocal -x test
----
+ To do this, make sure gradle is installed, clone the repository, and run: 
+   
+   ./gradlew publishToMavenLocal 
+   
+If some tests don't pass, run :  
+  ./gradlew publishToMavenLocal -x test 
