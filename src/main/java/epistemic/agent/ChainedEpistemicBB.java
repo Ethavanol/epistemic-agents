@@ -12,6 +12,7 @@ import jason.bb.DefaultBeliefBase;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 
 public class ChainedEpistemicBB extends ChainBBAdapter {
     private final EpistemicDistribution epistemicDistribution;
@@ -74,6 +75,36 @@ public class ChainedEpistemicBB extends ChainBBAdapter {
         if (!epistemicDistribution.getManagedWorlds().getManagedLiterals().isManagedBelief(epistemicLiteral.getRootLiteral().getNormalizedIndicator())) {
             epistemicAgent.getLogger().fine("The root literal in the epistemic formula: " + epistemicLiteral.getCleanedOriginal() + " is not managed by the reasoner. Delegating to BB.");
             return super.getCandidateBeliefs(l, u);
+        }
+
+        // If model not created yet, no need to evaluate formulas
+        // And we need this to get the rules from the BB
+        if(!epistemicAgent.getEpistemic().getModelCreated()) {
+            if(l.isVar()){
+                return iterator();
+            } else {
+                DefaultBeliefBase bb = (DefaultBeliefBase) this.nextBB;
+                Map<PredicateIndicator, DefaultBeliefBase.BelEntry> belsMap = bb.getBelsMapDefaultNS();
+                if (l.getNS() != Literal.DefaultNS) {
+                    Atom ns = l.getNS();
+                    if (ns.isVar()) {
+                        l = (Literal)l.capply(u);
+                        ns = l.getNS();
+                    }
+                    if (ns.isVar()) { // still a var
+                        return iterator();
+                    }
+                    belsMap = bb.getNameSpacesFull().get(ns);
+                }
+                if (belsMap == null)
+                    return null;
+                DefaultBeliefBase.BelEntry entry = belsMap.get(l.getPredicateIndicator());
+                if (entry != null) {
+                    return bb.new EntryIteratorWrapper(entry);
+                } else {
+                    return null;
+                }
+            }
         }
 
         // If the root literal is not ground, then obtain all possible managed unifications
