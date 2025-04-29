@@ -12,6 +12,10 @@ This is a fork of [Michael Vezina Epistemic Agents](https://github.com/MikeVezin
 ## Install Gradle Local Dependency
 
 In order to use the epistemic agent framework with other projects, you must install it into your local gradle repository (it is currently not being published to maven central). 
+We are going to use the .gradlew command for this. 
+If gradle isn't installed on your machine, you can install it via here [Gradle](https://gradle.org/install/), and then run the following command :
+
+    gradle wrapper --gradle-version 8.6
 
 
 ### Rename the reasoner-config.json.example
@@ -48,5 +52,3 @@ Mac:
 And of course, for Linux and Mac, we can write in the short form:
 
     ~/.m2
-
-Everything should be good now
